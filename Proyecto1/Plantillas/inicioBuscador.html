@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Búsqueda</title>
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #4285f4;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 16px;
+            color: #bbb;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #bbb;
+        }
+
+        input[type="text"] {
+            padding: 12px;
+            width: 100%;
+            font-size: 16px;
+            border: 2px solid #555;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: #333;
+            color: #fff;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #29CFDF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #357ae8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-sizing: border-box;
+            color: #DF2929;
+        }
+    </style>
+</head>
+<body>
+    <h1><span style="color: #29CFDF;">Navega</span><span style="color: #DF2929;">Dotor</span></h1>
+
+    <form id="searchForm">
+        <label for="palabra">Buscar:</label>
+        <input type="text" id="palabra" name="palabra" required>
+        <button type="button" onclick="buscar()">Buscar</button>
+    </form>
+
+    <p>
+        Encuentra lo que buscas en una amplia gama de sitios web en inglés
+    </p>
+
+    <footer>
+        Autor: Juan Carlos Dotor Gonzalez
+    </footer>
+
+    <script>
+        function buscar() {
+            var palabra = document.getElementById('palabra').value;
+            var host = window.location.host;
+            var protocol = window.location.protocol;
+
+            // Construir la URL dinámica
+            var dynamicURL = protocol + '//' + host + '/search/' + palabra;
+
+            // Redireccionar a la URL dinámica
+            window.location.href = dynamicURL;
+        }
+    </script>
+</body>
+</html>
+
